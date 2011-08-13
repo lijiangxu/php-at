@@ -1,0 +1,11 @@
+#!/usr/bin/php
+<?php
+
+require_once 'config.php';
+
+$console = new AT_Console();
+$console->parse();
+
+$controller = new AT_Controller($tasks);
+$controller->setConfig($config);
+$controller->dispatch($console);
