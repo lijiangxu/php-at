@@ -1,0 +1,59 @@
+<?php
+
+$config = array(
+    'usleep' => 1000000,
+    'logFile' => 'at.log',
+    'lockFile' => 'at.lock',
+    'poolSize' => 3,
+    'procExecTime' => 120,
+);
+
+require_once 'check.php';
+require_once 'AT/Log.php';
+require_once 'AT/Console.php';
+require_once 'AT/Constroller.php';
+require_once 'AT/Process/Pool.php';
+require_once 'AT/Process.php';
+
+/**
+ * ProcessID => ProcessFunction
+ */
+$tasks = array(
+    1 => 'doSomth1',
+    2 => 'doSomth2',
+    3 => 'doSomth3',
+    4 => 'doSomth4',
+    5 => 'doSomth5',
+    6 => 'doSomth6',
+);
+
+function doSomth1()
+{
+    sleep(60);
+    echo "Called " . __FUNCTION__ ;
+}
+function doSomth2()
+{
+    sleep(20);
+    echo "Called " . __FUNCTION__ ;
+}
+function doSomth3()
+{
+    sleep(40);
+    echo "Called " . __FUNCTION__ ;
+}
+function doSomth4()
+{
+    sleep(20);
+    echo "Called " . __FUNCTION__ ;
+}
+function doSomth5()
+{
+    sleep(20);
+    echo "Called " . __FUNCTION__ ;
+}
+function doSomth6()
+{
+    sleep(20);
+    echo "Called " . __FUNCTION__ ;
+}
